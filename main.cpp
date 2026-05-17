@@ -3,7 +3,7 @@
 int main()
 {
     Tracker t;
-
+    t.loadFromFile();
     int choice;
 
     while(true)

@@ -17,6 +17,8 @@ public:
 
     void addProblem();
     void viewProblems();
+    void saveToFile();
+    void loadFromFile();
 
 };
 
