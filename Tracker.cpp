@@ -21,3 +21,18 @@ void Tracker::addProblem()
 
     cout<<"Problem Added Successfully\n";
 }
+void Tracker::viewProblems()
+{
+    for(auto p:problems)
+    {
+        cout<<p.title<<" | "
+            <<p.topic<<" | "
+            <<p.difficulty<<" | ";
+
+        if(p.solved)
+            cout<<"Solved\n";
+
+        else
+            cout<<"Pending\n";
+    }
+}
