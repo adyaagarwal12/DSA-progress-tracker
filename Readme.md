@@ -11,12 +11,10 @@ A console-based LeetCode problem tracker built using C++ and OOP concepts.
 
 ## Concepts Used
 
-- Object Oriented Programming
+- OOP
 - Classes and Objects
-- Encapsulation
 - Vectors
 - File Handling
-- Multi-file project structure
 - Git and GitHub
 
 ## Project Structure
@@ -28,7 +26,6 @@ leetcode-tracker-cpp/
 ├── Tracker.h
 ├── Tracker.cpp
 ├── problems.txt
-└── README.md
 
 ## Example
 
