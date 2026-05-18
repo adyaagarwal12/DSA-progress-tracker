@@ -19,7 +19,7 @@ public:
     void viewProblems();
     void saveToFile();
     void loadFromFile();
-
+    void searchProblem();
 };
 
 #endif
