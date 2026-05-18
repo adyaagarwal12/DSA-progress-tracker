@@ -14,7 +14,8 @@ int main()
         cout<<"1. Add Problem\n";
         cout<<"2. View Problems\n";
         cout<<"3. Search Problem\n";
-        cout<<"4. Exit\n";
+        cout<<"4. Delete Problem\n";
+        cout<<"5. Exit\n";
 
         cout<<"Enter choice: ";
         cin>>choice;
@@ -35,6 +36,10 @@ int main()
         }
 
         else if(choice==4)
+        {
+            t.deleteProblem();
+        }
+        else if(choice==5)
         {
             break;
         }

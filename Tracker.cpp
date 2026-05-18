@@ -98,3 +98,27 @@ void Tracker::searchProblem()
         }
     }
 }
+void Tracker::deleteProblem()
+{
+    int index;
+
+    viewProblems();
+
+    cout<<"Enter problem number to delete: ";
+
+    cin>>index;
+
+    if(index>=1 && index<=problems.size())
+    {
+        problems.erase(problems.begin()+index-1);
+
+        saveToFile();
+
+        cout<<"Problem Deleted Successfully\n";
+    }
+
+    else
+    {
+        cout<<"Invalid Index\n";
+    }
+}
