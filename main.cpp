@@ -4,6 +4,7 @@ int main()
 {
     Tracker t;
     t.loadFromFile();
+
     int choice;
 
     while(true)
@@ -12,7 +13,8 @@ int main()
 
         cout<<"1. Add Problem\n";
         cout<<"2. View Problems\n";
-        cout<<"3. Exit\n";
+        cout<<"3. Search Problem\n";
+        cout<<"4. Exit\n";
 
         cout<<"Enter choice: ";
         cin>>choice;
@@ -28,6 +30,11 @@ int main()
         }
 
         else if(choice==3)
+        {
+            t.searchProblem();
+        }
+
+        else if(choice==4)
         {
             break;
         }
