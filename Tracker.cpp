@@ -139,13 +139,13 @@ void Tracker::showStats()
         else
             pending++;
 
-        if(p.difficulty=="Easy")
+        if(p.difficulty=="easy")
             easy++;
 
-        else if(p.difficulty=="Medium")
+        else if(p.difficulty=="medium")
             medium++;
 
-        else if(p.difficulty=="Hard")
+        else if(p.difficulty=="hard")
             hard++;
     }
 
