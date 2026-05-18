@@ -20,6 +20,7 @@ public:
     void saveToFile();
     void loadFromFile();
     void searchProblem();
+    void deleteProblem();
 };
 
 #endif
