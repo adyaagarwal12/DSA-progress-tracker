@@ -15,7 +15,8 @@ int main()
         cout<<"2. View Problems\n";
         cout<<"3. Search Problem\n";
         cout<<"4. Delete Problem\n";
-        cout<<"5. Exit\n";
+        cout<<"5. Show Statistics\n";
+        cout<<"6. Exit\n";
 
         cout<<"Enter choice: ";
         cin>>choice;
@@ -41,9 +42,12 @@ int main()
         }
         else if(choice==5)
         {
+            t.showStats();
+        }
+        else if(choice==6)
+        {
             break;
         }
-
         else
         {
             cout<<"Invalid Choice\n";

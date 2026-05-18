@@ -21,6 +21,7 @@ public:
     void loadFromFile();
     void searchProblem();
     void deleteProblem();
+    void showStats();
 };
 
 #endif

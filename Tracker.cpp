@@ -122,3 +122,44 @@ void Tracker::deleteProblem()
         cout<<"Invalid Index\n";
     }
 }
+void Tracker::showStats()
+{
+    int solved=0;
+    int pending=0;
+
+    int easy=0;
+    int medium=0;
+    int hard=0;
+
+    for(auto p:problems)
+    {
+        if(p.solved)
+            solved++;
+
+        else
+            pending++;
+
+        if(p.difficulty=="Easy")
+            easy++;
+
+        else if(p.difficulty=="Medium")
+            medium++;
+
+        else if(p.difficulty=="Hard")
+            hard++;
+    }
+
+    cout<<"\n====== Statistics ======\n";
+
+    cout<<"Total Problems : "<<problems.size()<<endl;
+
+    cout<<"Solved : "<<solved<<endl;
+
+    cout<<"Pending : "<<pending<<endl;
+
+    cout<<"Easy : "<<easy<<endl;
+
+    cout<<"Medium : "<<medium<<endl;
+
+    cout<<"Hard : "<<hard<<endl;
+}
