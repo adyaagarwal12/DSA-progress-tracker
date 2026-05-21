@@ -16,7 +16,7 @@ width:85%;
 
 margin:auto;
 
-padding:20px;
+padding:30px;
 
 }
 
@@ -24,15 +24,11 @@ h1{
 
 text-align:center;
 
-margin-bottom:30px;
+margin-bottom:40px;
 
 }
 
-h2{
-
-margin-top:30px;
-
-}
+/* DASHBOARD */
 
 .stats{
 
@@ -52,15 +48,15 @@ margin-bottom:40px;
 
 background:white;
 
-padding:20px;
+width:170px;
 
-width:150px;
+padding:25px;
 
 text-align:center;
 
-border-radius:10px;
+border-radius:12px;
 
-box-shadow:0px 2px 8px gray;
+box-shadow:0px 2px 10px rgba(0,0,0,0.15);
 
 transition:0.3s;
 
@@ -72,6 +68,14 @@ transform:translateY(-5px);
 
 }
 
+.card h2{
+
+margin-bottom:20px;
+
+}
+
+/* FORM */
+
 .form{
 
 display:flex;
@@ -80,45 +84,43 @@ justify-content:center;
 
 gap:15px;
 
-margin-bottom:30px;
+margin-top:30px;
+
+margin-bottom:40px;
 
 flex-wrap:wrap;
 
 }
 
-.contest-form{
+input{
 
-display:flex;
+padding:12px;
 
-justify-content:center;
-
-gap:15px;
-
-margin-top:20px;
-
-margin-bottom:30px;
-
-flex-wrap:wrap;
-
-}
-
-input,select{
-
-padding:10px;
-
-border:1px solid gray;
+width:220px;
 
 border-radius:8px;
 
-font-size:16px;
+border:1px solid gray;
 
-min-width:150px;
+outline:none;
+
+}
+
+select{
+
+padding:12px;
+
+width:150px;
+
+border-radius:8px;
+
+border:1px solid gray;
 
 }
 
 button{
 
-padding:10px 20px;
+padding:12px 20px;
 
 background:black;
 
@@ -136,23 +138,29 @@ transition:0.3s;
 
 button:hover{
 
-opacity:0.8;
+opacity:0.85;
 
 }
+
+/* TABLE */
 
 table{
 
 width:100%;
 
-background:white;
+margin-top:20px;
 
 border-collapse:collapse;
 
-margin-top:20px;
+background:white;
 
-margin-bottom:30px;
+box-shadow:0px 2px 10px rgba(0,0,0,0.1);
 
-box-shadow:0px 2px 8px gray;
+}
+
+th{
+
+background:#eeeeee;
 
 }
 
@@ -160,33 +168,73 @@ th,td{
 
 padding:15px;
 
-border:1px solid lightgray;
-
 text-align:center;
 
-}
-
-th{
-
-background:#eaeaea;
+border:1px solid #ddd;
 
 }
 
-tr:hover{
+tbody tr:hover{
 
-background:#f0f0f0;
-
-}
-
-hr{
-
-margin-top:40px;
-
-margin-bottom:40px;
+background:#f7f7f7;
 
 }
 
-@media(max-width:768px){
+/* SECTION HEADINGS */
+
+h2{
+
+margin-top:50px;
+
+margin-bottom:20px;
+
+}
+
+/* CONTEST TRACKER */
+
+.contest{
+
+margin-top:50px;
+
+padding:20px;
+
+background:white;
+
+border-radius:12px;
+
+box-shadow:0px 2px 10px rgba(0,0,0,0.1);
+
+}
+
+.contestForm{
+
+display:flex;
+
+gap:15px;
+
+flex-wrap:wrap;
+
+justify-content:center;
+
+margin-top:20px;
+
+}
+
+.contestForm input{
+
+width:180px;
+
+}
+
+.contestForm select{
+
+width:150px;
+
+}
+
+/* RESPONSIVE */
+
+@media(max-width:900px){
 
 .stats{
 
@@ -204,7 +252,7 @@ align-items:center;
 
 }
 
-.contest-form{
+.contestForm{
 
 flex-direction:column;
 
@@ -212,9 +260,15 @@ align-items:center;
 
 }
 
-input,select,button{
+input,select{
 
-width:80%;
+width:90%;
+
+}
+
+button{
+
+width:200px;
 
 }
 

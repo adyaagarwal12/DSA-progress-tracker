@@ -1,587 +1,439 @@
 let total = 0;
-
 let easy = 0;
-
 let medium = 0;
-
 let hard = 0;
-
 let score = 0;
 
 let weekly = 0;
-
 let biweekly = 0;
 
-let bestRank = Infinity;
+
+// LOAD SAVED DATA
+
+window.onload = function () {
+
+    let saved =
+        localStorage.getItem(
+            "dsaTracker"
+        );
+
+    if (saved) {
+
+        let data =
+            JSON.parse(saved);
+
+        total = data.total;
+        easy = data.easy;
+        medium = data.medium;
+        hard = data.hard;
+        score = data.score;
+
+        weekly = data.weekly;
+        biweekly = data.biweekly;
+
+        document.getElementById(
+            "problemTable"
+        ).innerHTML =
+            data.problemTable;
+
+        document.getElementById(
+            "contestTable"
+        ).innerHTML =
+            data.contestTable;
+
+        updateDashboard();
+
+    }
+
+};
 
 
+// SAVE DATA
 
-function addProblem(){
+function saveData() {
 
-let name =
-document.getElementById(
-"problemName").value;
+    let data = {
 
-let diff =
-document.getElementById(
-"difficulty").value;
+        total,
+        easy,
+        medium,
+        hard,
+        score,
 
-if(name=="")
-return;
+        weekly,
+        biweekly,
 
-total++;
+        problemTable:
 
-if(diff=="Easy"){
+            document.getElementById(
+                "problemTable"
+            ).innerHTML,
 
-easy++;
+        contestTable:
 
-score += 2;
+            document.getElementById(
+                "contestTable"
+            ).innerHTML
+
+    };
+
+    localStorage.setItem(
+
+        "dsaTracker",
+
+        JSON.stringify(data)
+
+    );
 
 }
 
-else if(diff=="Medium"){
 
-medium++;
 
-score += 4;
+// ADD PROBLEM
 
-}
+function addProblem() {
 
-else{
+    let name =
 
-hard++;
+        document.getElementById(
+            "problemName"
+        ).value;
 
-score += 8;
+    let diff =
 
-}
+        document.getElementById(
+            "difficulty"
+        ).value;
 
-updateDashboard();
 
-let table =
-document.getElementById(
-"problemTable");
+    if (name === "") {
 
-let row =
-table.insertRow();
+        alert(
+            "Enter problem name"
+        );
 
-row.insertCell(0).innerHTML =
-name;
+        return;
+    }
 
-row.insertCell(1).innerHTML =
-diff;
 
-row.insertCell(2).innerHTML =
+    total++;
 
-`<button onclick=
+    if (diff === "Easy") {
+
+        easy++;
+
+        score += 2;
+
+    }
+
+    else if (
+        diff === "Medium"
+    ) {
+
+        medium++;
+
+        score += 4;
+
+    }
+
+    else {
+
+        hard++;
+
+        score += 8;
+
+    }
+
+
+    let table =
+
+        document.getElementById(
+            "problemTable"
+        );
+
+
+    let row =
+        table.insertRow();
+
+
+    row.innerHTML =
+
+        `<td>${name}</td>
+
+<td>${diff}</td>
+
+<td>
+
+<button
+onclick=
 "deleteProblem(
 this,
-'${diff}')">
+'${diff}'
+)">
 
 Delete
 
-</button>`;
+</button>
 
-document.getElementById(
-"problemName").value="";
+</td>`;
+
+
+    document.getElementById(
+        "problemName"
+    ).value = "";
+
+
+    updateDashboard();
+
+    saveData();
 
 }
 
 
+
+// DELETE PROBLEM
 
 function deleteProblem(
-btn,diff){
+    btn,
+    diff
+) {
 
-let row =
-btn.parentNode.parentNode;
+    btn.parentNode
+        .parentNode
+        .remove();
 
-row.remove();
 
-total--;
+    total--;
 
-if(diff=="Easy"){
 
-easy--;
+    if (
+        diff === "Easy"
+    ) {
 
-score -= 2;
+        easy--;
+
+        score -= 2;
+
+    }
+
+    else if (
+        diff === "Medium"
+    ) {
+
+        medium--;
+
+        score -= 4;
+
+    }
+
+    else {
+
+        hard--;
+
+        score -= 8;
+
+    }
+
+
+    updateDashboard();
+
+    saveData();
 
 }
 
-else if(diff=="Medium"){
-
-medium--;
-
-score -= 4;
-
-}
-
-else{
-
-hard--;
-
-score -= 8;
-
-}
-
-updateDashboard();
-
-}
 
 
+// ADD CONTEST
+
+function addContest() {
+
+    let name =
+
+        document.getElementById(
+            "contestName"
+        ).value;
 
 
+    let type =
 
-function addContest(){
-
-let name =
-document.getElementById(
-"contestName").value;
-
-let type =
-document.getElementById(
-"contestType").value;
-
-let rank =
-parseInt(
-document.getElementById(
-"contestRank").value);
-
-let solved =
-parseInt(
-document.getElementById(
-"contestSolved").value);
-
-if(name=="")
-return;
+        document.getElementById(
+            "contestType"
+        ).value;
 
 
+    let rank =
 
-if(type=="Weekly")
-
-weekly++;
-
-else
-
-biweekly++;
+        document.getElementById(
+            "contestRank"
+        ).value;
 
 
+    let solved =
 
-if(rank < bestRank)
-
-bestRank = rank;
-
-
-
-if(solved>=3)
-
-score += 10;
+        document.getElementById(
+            "contestSolved"
+        ).value;
 
 
+    if (name === "") {
 
-updateDashboard();
+        alert(
+            "Enter contest"
+        );
+
+        return;
+
+    }
 
 
+    if (
+        type === "Weekly"
+    )
 
-let table =
-document.getElementById(
-"contestTable");
+        weekly++;
 
-let row =
-table.insertRow();
+    else
 
-row.insertCell(0).innerHTML =
-name;
+        biweekly++;
 
-row.insertCell(1).innerHTML =
-type;
 
-row.insertCell(2).innerHTML =
-rank;
+    let table =
 
-row.insertCell(3).innerHTML =
-solved;
+        document.getElementById(
+            "contestTable"
+        );
 
-row.insertCell(4).innerHTML =
 
-`<button onclick=
+    let row =
+        table.insertRow();
+
+
+    row.innerHTML =
+
+        `<td>${name}</td>
+
+<td>${type}</td>
+
+<td>${rank}</td>
+
+<td>${solved}</td>
+
+<td>
+
+<button
+
+onclick=
+
 "deleteContest(
+
 this,
-'${type}',
-${solved})">
+
+'${type}'
+
+)">
 
 Delete
 
-</button>`;
+</button>
+
+</td>`;
 
 
-document.getElementById(
-"contestName").value="";
+    document.getElementById(
+        "contestName"
+    ).value = "";
 
-document.getElementById(
-"contestRank").value="";
+    document.getElementById(
+        "contestRank"
+    ).value = "";
 
-document.getElementById(
-"contestSolved").value="";
+    document.getElementById(
+        "contestSolved"
+    ).value = "";
+
+
+    updateDashboard();
+
+    saveData();
 
 }
 
 
+
+// DELETE CONTEST
 
 function deleteContest(
-btn,
-type,
-solved){
+    btn,
+    type
+) {
 
-let row =
-btn.parentNode.parentNode;
-
-row.remove();
-
+    btn.parentNode
+        .parentNode
+        .remove();
 
 
-if(type=="Weekly")
+    if (
+        type === "Weekly"
+    )
 
-weekly--;
+        weekly--;
 
-else
+    else
 
-biweekly--;
-
-
-
-if(solved>=3)
-
-score -= 10;
+        biweekly--;
 
 
+    updateDashboard();
 
-updateDashboard();
+    saveData();
 
 }
 
 
 
-function updateDashboard(){
+// UPDATE DASHBOARD
 
+function updateDashboard() {
 
-document.getElementById(
-"total").innerHTML =
-total;
+    document.getElementById(
+        "total"
+    ).innerText =
+        total;
 
-document.getElementById(
-"easyCount").innerHTML =
-easy;
 
-document.getElementById(
-"mediumCount").innerHTML =
-medium;
+    document.getElementById(
+        "easyCount"
+    ).innerText =
+        easy;
 
-document.getElementById(
-"hardCount").innerHTML =
-hard;
 
-document.getElementById(
-"score").innerHTML =
-score;
+    document.getElementById(
+        "mediumCount"
+    ).innerText =
+        medium;
 
-document.getElementById(
-"weeklyCount").innerHTML =
-weekly;
 
-document.getElementById(
-"biweeklyCount").innerHTML =
-biweekly;
+    document.getElementById(
+        "hardCount"
+    ).innerText =
+        hard;
 
-}let total = 0;
 
-let easy = 0;
+    document.getElementById(
+        "score"
+    ).innerText =
+        score;
 
-let medium = 0;
 
-let hard = 0;
+    document.getElementById(
+        "weeklyCount"
+    ).innerText =
+        weekly;
 
-let score = 0;
 
-let weekly = 0;
-
-let biweekly = 0;
-
-let bestRank = Infinity;
-
-
-
-function addProblem(){
-
-let name =
-document.getElementById(
-"problemName").value;
-
-let diff =
-document.getElementById(
-"difficulty").value;
-
-if(name=="")
-return;
-
-total++;
-
-if(diff=="Easy"){
-
-easy++;
-
-score += 2;
-
-}
-
-else if(diff=="Medium"){
-
-medium++;
-
-score += 4;
-
-}
-
-else{
-
-hard++;
-
-score += 8;
-
-}
-
-updateDashboard();
-
-let table =
-document.getElementById(
-"problemTable");
-
-let row =
-table.insertRow();
-
-row.insertCell(0).innerHTML =
-name;
-
-row.insertCell(1).innerHTML =
-diff;
-
-row.insertCell(2).innerHTML =
-
-`<button onclick=
-"deleteProblem(
-this,
-'${diff}')">
-
-Delete
-
-</button>`;
-
-document.getElementById(
-"problemName").value="";
-
-}
-
-
-
-function deleteProblem(
-btn,diff){
-
-let row =
-btn.parentNode.parentNode;
-
-row.remove();
-
-total--;
-
-if(diff=="Easy"){
-
-easy--;
-
-score -= 2;
-
-}
-
-else if(diff=="Medium"){
-
-medium--;
-
-score -= 4;
-
-}
-
-else{
-
-hard--;
-
-score -= 8;
-
-}
-
-updateDashboard();
-
-}
-
-
-
-
-
-function addContest(){
-
-let name =
-document.getElementById(
-"contestName").value;
-
-let type =
-document.getElementById(
-"contestType").value;
-
-let rank =
-parseInt(
-document.getElementById(
-"contestRank").value);
-
-let solved =
-parseInt(
-document.getElementById(
-"contestSolved").value);
-
-if(name=="")
-return;
-
-
-
-if(type=="Weekly")
-
-weekly++;
-
-else
-
-biweekly++;
-
-
-
-if(rank < bestRank)
-
-bestRank = rank;
-
-
-
-if(solved>=3)
-
-score += 10;
-
-
-
-updateDashboard();
-
-
-
-let table =
-document.getElementById(
-"contestTable");
-
-let row =
-table.insertRow();
-
-row.insertCell(0).innerHTML =
-name;
-
-row.insertCell(1).innerHTML =
-type;
-
-row.insertCell(2).innerHTML =
-rank;
-
-row.insertCell(3).innerHTML =
-solved;
-
-row.insertCell(4).innerHTML =
-
-`<button onclick=
-"deleteContest(
-this,
-'${type}',
-${solved})">
-
-Delete
-
-</button>`;
-
-
-document.getElementById(
-"contestName").value="";
-
-document.getElementById(
-"contestRank").value="";
-
-document.getElementById(
-"contestSolved").value="";
-
-}
-
-
-
-function deleteContest(
-btn,
-type,
-solved){
-
-let row =
-btn.parentNode.parentNode;
-
-row.remove();
-
-
-
-if(type=="Weekly")
-
-weekly--;
-
-else
-
-biweekly--;
-
-
-
-if(solved>=3)
-
-score -= 10;
-
-
-
-updateDashboard();
-
-}
-
-
-
-function updateDashboard(){
-
-
-document.getElementById(
-"total").innerHTML =
-total;
-
-document.getElementById(
-"easyCount").innerHTML =
-easy;
-
-document.getElementById(
-"mediumCount").innerHTML =
-medium;
-
-document.getElementById(
-"hardCount").innerHTML =
-hard;
-
-document.getElementById(
-"score").innerHTML =
-score;
-
-document.getElementById(
-"weeklyCount").innerHTML =
-weekly;
-
-document.getElementById(
-"biweeklyCount").innerHTML =
-biweekly;
+    document.getElementById(
+        "biweeklyCount"
+    ).innerText =
+        biweekly;
 
 }
