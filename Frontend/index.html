@@ -43,6 +43,16 @@ href="style.css">
 <p id="score">0</p>
 </div>
 
+<div class="card">
+<h2>Weekly</h2>
+<p id="weeklyCount">0</p>
+</div>
+
+<div class="card">
+<h2>Biweekly</h2>
+<p id="biweeklyCount">0</p>
+</div>
+
 </div>
 
 <h2>Add Problem</h2>
@@ -57,13 +67,17 @@ placeholder="Problem Name">
 <select id="difficulty">
 
 <option>Easy</option>
+
 <option>Medium</option>
+
 <option>Hard</option>
 
 </select>
 
 <button onclick="addProblem()">
+
 Add
+
 </button>
 
 </div>
@@ -77,7 +91,9 @@ Add
 <tr>
 
 <th>Name</th>
+
 <th>Difficulty</th>
+
 <th>Action</th>
 
 </tr>
@@ -85,6 +101,70 @@ Add
 </thead>
 
 <tbody id="problemTable">
+
+</tbody>
+
+</table>
+
+<hr>
+
+<h2>Contest Tracker</h2>
+
+<div class="contest-form">
+
+<input
+id="contestName"
+type="text"
+placeholder="Contest Name">
+
+<select id="contestType">
+
+<option>Weekly</option>
+
+<option>Biweekly</option>
+
+</select>
+
+<input
+id="contestRank"
+type="number"
+placeholder="Rank">
+
+<input
+id="contestSolved"
+type="number"
+placeholder="Solved Questions">
+
+<button
+onclick="addContest()">
+
+Add Contest
+
+</button>
+
+</div>
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>Contest</th>
+
+<th>Type</th>
+
+<th>Rank</th>
+
+<th>Solved</th>
+
+<th>Action</th>
+
+</tr>
+
+</thead>
+
+<tbody id="contestTable">
 
 </tbody>
 

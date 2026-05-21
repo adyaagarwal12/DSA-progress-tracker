@@ -12,7 +12,7 @@ padding:0;
 
 .container{
 
-width:80%;
+width:85%;
 
 margin:auto;
 
@@ -25,6 +25,12 @@ h1{
 text-align:center;
 
 margin-bottom:30px;
+
+}
+
+h2{
+
+margin-top:30px;
 
 }
 
@@ -56,6 +62,14 @@ border-radius:10px;
 
 box-shadow:0px 2px 8px gray;
 
+transition:0.3s;
+
+}
+
+.card:hover{
+
+transform:translateY(-5px);
+
 }
 
 .form{
@@ -68,6 +82,24 @@ gap:15px;
 
 margin-bottom:30px;
 
+flex-wrap:wrap;
+
+}
+
+.contest-form{
+
+display:flex;
+
+justify-content:center;
+
+gap:15px;
+
+margin-top:20px;
+
+margin-bottom:30px;
+
+flex-wrap:wrap;
+
 }
 
 input,select{
@@ -79,6 +111,8 @@ border:1px solid gray;
 border-radius:8px;
 
 font-size:16px;
+
+min-width:150px;
 
 }
 
@@ -95,6 +129,8 @@ border:none;
 border-radius:8px;
 
 cursor:pointer;
+
+transition:0.3s;
 
 }
 
@@ -114,6 +150,8 @@ border-collapse:collapse;
 
 margin-top:20px;
 
+margin-bottom:30px;
+
 box-shadow:0px 2px 8px gray;
 
 }
@@ -131,5 +169,53 @@ text-align:center;
 th{
 
 background:#eaeaea;
+
+}
+
+tr:hover{
+
+background:#f0f0f0;
+
+}
+
+hr{
+
+margin-top:40px;
+
+margin-bottom:40px;
+
+}
+
+@media(max-width:768px){
+
+.stats{
+
+flex-direction:column;
+
+align-items:center;
+
+}
+
+.form{
+
+flex-direction:column;
+
+align-items:center;
+
+}
+
+.contest-form{
+
+flex-direction:column;
+
+align-items:center;
+
+}
+
+input,select,button{
+
+width:80%;
+
+}
 
 }
