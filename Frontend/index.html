@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>DSA Tracker</title>
+
+<link rel="stylesheet"
+href="style.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>DSA Progress Tracker</h1>
+
+<div class="stats">
+
+<div class="card">
+<h2>Total</h2>
+<p id="total">0</p>
+</div>
+
+<div class="card">
+<h2>Easy</h2>
+<p id="easyCount">0</p>
+</div>
+
+<div class="card">
+<h2>Medium</h2>
+<p id="mediumCount">0</p>
+</div>
+
+<div class="card">
+<h2>Hard</h2>
+<p id="hardCount">0</p>
+</div>
+
+<div class="card">
+<h2>Score</h2>
+<p id="score">0</p>
+</div>
+
+</div>
+
+<h2>Add Problem</h2>
+
+<div class="form">
+
+<input
+id="problemName"
+type="text"
+placeholder="Problem Name">
+
+<select id="difficulty">
+
+<option>Easy</option>
+<option>Medium</option>
+<option>Hard</option>
+
+</select>
+
+<button onclick="addProblem()">
+Add
+</button>
+
+</div>
+
+<h2>Problems List</h2>
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>Name</th>
+<th>Difficulty</th>
+<th>Action</th>
+
+</tr>
+
+</thead>
+
+<tbody id="problemTable">
+
+</tbody>
+
+</table>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
