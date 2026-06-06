@@ -1,275 +1,180 @@
 body{
-
-font-family:Arial;
-
-background:#f5f5f5;
-
-margin:0;
-
-padding:0;
-
+    font-family: Arial;
+    background: #f5f5f5;
+    margin: 0;
+    padding: 0;
 }
 
 .container{
-
-width:85%;
-
-margin:auto;
-
-padding:30px;
-
+    width: 85%;
+    margin: auto;
+    padding: 30px;
 }
 
 h1{
-
-text-align:center;
-
-margin-bottom:40px;
-
+    text-align: center;
+    margin-bottom: 40px;
 }
 
 /* DASHBOARD */
 
 .stats{
-
-display:flex;
-
-justify-content:center;
-
-gap:20px;
-
-flex-wrap:wrap;
-
-margin-bottom:40px;
-
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
 }
 
 .card{
-
-background:white;
-
-width:170px;
-
-padding:25px;
-
-text-align:center;
-
-border-radius:12px;
-
-box-shadow:0px 2px 10px rgba(0,0,0,0.15);
-
-transition:0.3s;
-
+    background: white;
+    width: 170px;
+    padding: 25px;
+    text-align: center;
+    border-radius: 12px;
+    box-shadow: 0px 2px 10px rgba(0,0,0,0.15);
+    transition: 0.3s;
 }
 
 .card:hover{
-
-transform:translateY(-5px);
-
+    transform: translateY(-5px);
 }
 
 .card h2{
+    margin-bottom: 20px;
+}
 
-margin-bottom:20px;
+/* CHART */
 
+.chart-container{
+    width: 60%;
+    margin: 40px auto;
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0px 2px 10px rgba(0,0,0,0.1);
 }
 
 /* FORM */
 
 .form{
-
-display:flex;
-
-justify-content:center;
-
-gap:15px;
-
-margin-top:30px;
-
-margin-bottom:40px;
-
-flex-wrap:wrap;
-
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 30px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
 }
 
 input{
-
-padding:12px;
-
-width:220px;
-
-border-radius:8px;
-
-border:1px solid gray;
-
-outline:none;
-
+    padding: 12px;
+    width: 220px;
+    border-radius: 8px;
+    border: 1px solid gray;
+    outline: none;
 }
 
 select{
-
-padding:12px;
-
-width:150px;
-
-border-radius:8px;
-
-border:1px solid gray;
-
+    padding: 12px;
+    width: 150px;
+    border-radius: 8px;
+    border: 1px solid gray;
 }
 
 button{
-
-padding:12px 20px;
-
-background:black;
-
-color:white;
-
-border:none;
-
-border-radius:8px;
-
-cursor:pointer;
-
-transition:0.3s;
-
+    padding: 12px 20px;
+    background: black;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
 }
 
 button:hover{
-
-opacity:0.85;
-
+    opacity: 0.85;
 }
 
 /* TABLE */
 
 table{
-
-width:100%;
-
-margin-top:20px;
-
-border-collapse:collapse;
-
-background:white;
-
-box-shadow:0px 2px 10px rgba(0,0,0,0.1);
-
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+    background: white;
+    box-shadow: 0px 2px 10px rgba(0,0,0,0.1);
 }
 
 th{
-
-background:#eeeeee;
-
+    background: #eeeeee;
 }
 
-th,td{
-
-padding:15px;
-
-text-align:center;
-
-border:1px solid #ddd;
-
+th,
+td{
+    padding: 15px;
+    text-align: center;
+    border: 1px solid #ddd;
 }
 
 tbody tr:hover{
-
-background:#f7f7f7;
-
+    background: #f7f7f7;
 }
 
-/* SECTION HEADINGS */
+/* HEADINGS */
 
 h2{
-
-margin-top:50px;
-
-margin-bottom:20px;
-
+    margin-top: 50px;
+    margin-bottom: 20px;
 }
 
 /* CONTEST TRACKER */
 
-.contest{
-
-margin-top:50px;
-
-padding:20px;
-
-background:white;
-
-border-radius:12px;
-
-box-shadow:0px 2px 10px rgba(0,0,0,0.1);
-
+.contest-form{
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
-.contestForm{
-
-display:flex;
-
-gap:15px;
-
-flex-wrap:wrap;
-
-justify-content:center;
-
-margin-top:20px;
-
+.contest-form input{
+    width: 180px;
 }
 
-.contestForm input{
-
-width:180px;
-
-}
-
-.contestForm select{
-
-width:150px;
-
+.contest-form select{
+    width: 150px;
 }
 
 /* RESPONSIVE */
 
 @media(max-width:900px){
 
-.stats{
+    .stats{
+        flex-direction: column;
+        align-items: center;
+    }
 
-flex-direction:column;
+    .form{
+        flex-direction: column;
+        align-items: center;
+    }
 
-align-items:center;
+    .contest-form{
+        flex-direction: column;
+        align-items: center;
+    }
 
-}
+    input,
+    select{
+        width: 90%;
+    }
 
-.form{
+    button{
+        width: 200px;
+    }
 
-flex-direction:column;
-
-align-items:center;
-
-}
-
-.contestForm{
-
-flex-direction:column;
-
-align-items:center;
-
-}
-
-input,select{
-
-width:90%;
-
-}
-
-button{
-
-width:200px;
-
-}
-
+    .chart-container{
+        width: 90%;
+    }
 }

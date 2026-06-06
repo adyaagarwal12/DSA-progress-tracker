@@ -7,46 +7,40 @@ let score = 0;
 let weekly = 0;
 let biweekly = 0;
 
+let chart;
 
 // LOAD SAVED DATA
 
 window.onload = function () {
 
-    let saved =
-        localStorage.getItem(
-            "dsaTracker"
-        );
+    let saved = localStorage.getItem("dsaTracker");
 
     if (saved) {
 
-        let data =
-            JSON.parse(saved);
+        let data = JSON.parse(saved);
 
-        total = data.total;
-        easy = data.easy;
-        medium = data.medium;
-        hard = data.hard;
-        score = data.score;
+        total = data.total || 0;
+        easy = data.easy || 0;
+        medium = data.medium || 0;
+        hard = data.hard || 0;
+        score = data.score || 0;
 
-        weekly = data.weekly;
-        biweekly = data.biweekly;
+        weekly = data.weekly || 0;
+        biweekly = data.biweekly || 0;
 
         document.getElementById(
             "problemTable"
         ).innerHTML =
-            data.problemTable;
+            data.problemTable || "";
 
         document.getElementById(
             "contestTable"
         ).innerHTML =
-            data.contestTable;
+            data.contestTable || "";
 
         updateDashboard();
-
     }
-
 };
-
 
 // SAVE DATA
 
@@ -64,13 +58,11 @@ function saveData() {
         biweekly,
 
         problemTable:
-
             document.getElementById(
                 "problemTable"
             ).innerHTML,
 
         contestTable:
-
             document.getElementById(
                 "contestTable"
             ).innerHTML
@@ -78,118 +70,74 @@ function saveData() {
     };
 
     localStorage.setItem(
-
         "dsaTracker",
-
         JSON.stringify(data)
-
     );
-
 }
-
-
 
 // ADD PROBLEM
 
 function addProblem() {
 
     let name =
-
         document.getElementById(
             "problemName"
-        ).value;
+        ).value.trim();
 
     let diff =
-
         document.getElementById(
             "difficulty"
         ).value;
 
-
     if (name === "") {
 
-        alert(
-            "Enter problem name"
-        );
-
+        alert("Enter problem name");
         return;
     }
-
 
     total++;
 
     if (diff === "Easy") {
 
         easy++;
-
         score += 2;
 
-    }
-
-    else if (
-        diff === "Medium"
-    ) {
+    } else if (diff === "Medium") {
 
         medium++;
-
         score += 4;
 
-    }
-
-    else {
+    } else {
 
         hard++;
-
         score += 8;
-
     }
 
-
     let table =
-
         document.getElementById(
             "problemTable"
         );
 
-
     let row =
         table.insertRow();
-
 
     row.innerHTML =
 
         `<td>${name}</td>
-
-<td>${diff}</td>
-
-<td>
-
-<button
-onclick=
-"deleteProblem(
-this,
-'${diff}'
-)">
-
-Delete
-
-</button>
-
-</td>`;
-
+         <td>${diff}</td>
+         <td>
+         <button onclick="deleteProblem(this,'${diff}')">
+         Delete
+         </button>
+         </td>`;
 
     document.getElementById(
         "problemName"
     ).value = "";
 
-
     updateDashboard();
-
     saveData();
-
 }
-
-
 
 // DELETE PROBLEM
 
@@ -202,142 +150,84 @@ function deleteProblem(
         .parentNode
         .remove();
 
-
     total--;
 
-
-    if (
-        diff === "Easy"
-    ) {
+    if (diff === "Easy") {
 
         easy--;
-
         score -= 2;
 
-    }
-
-    else if (
+    } else if (
         diff === "Medium"
     ) {
 
         medium--;
-
         score -= 4;
 
-    }
-
-    else {
+    } else {
 
         hard--;
-
         score -= 8;
-
     }
 
-
     updateDashboard();
-
     saveData();
-
 }
-
-
 
 // ADD CONTEST
 
 function addContest() {
 
     let name =
-
         document.getElementById(
             "contestName"
-        ).value;
-
+        ).value.trim();
 
     let type =
-
         document.getElementById(
             "contestType"
         ).value;
 
-
     let rank =
-
         document.getElementById(
             "contestRank"
         ).value;
 
-
     let solved =
-
         document.getElementById(
             "contestSolved"
         ).value;
 
-
     if (name === "") {
 
-        alert(
-            "Enter contest"
-        );
-
+        alert("Enter contest name");
         return;
-
     }
 
-
-    if (
-        type === "Weekly"
-    )
-
+    if (type === "Weekly")
         weekly++;
-
     else
-
         biweekly++;
 
-
     let table =
-
         document.getElementById(
             "contestTable"
         );
 
-
     let row =
         table.insertRow();
-
 
     row.innerHTML =
 
         `<td>${name}</td>
-
-<td>${type}</td>
-
-<td>${rank}</td>
-
-<td>${solved}</td>
-
-<td>
-
-<button
-
-onclick=
-
-"deleteContest(
-
-this,
-
-'${type}'
-
-)">
-
-Delete
-
-</button>
-
-</td>`;
-
+         <td>${type}</td>
+         <td>${rank}</td>
+         <td>${solved}</td>
+         <td>
+         <button onclick="deleteContest(this,'${type}')">
+         Delete
+         </button>
+         </td>`;
 
     document.getElementById(
         "contestName"
@@ -351,14 +241,9 @@ Delete
         "contestSolved"
     ).value = "";
 
-
     updateDashboard();
-
     saveData();
-
 }
-
-
 
 // DELETE CONTEST
 
@@ -371,25 +256,14 @@ function deleteContest(
         .parentNode
         .remove();
 
-
-    if (
-        type === "Weekly"
-    )
-
+    if (type === "Weekly")
         weekly--;
-
     else
-
         biweekly--;
 
-
     updateDashboard();
-
     saveData();
-
 }
-
-
 
 // UPDATE DASHBOARD
 
@@ -397,43 +271,74 @@ function updateDashboard() {
 
     document.getElementById(
         "total"
-    ).innerText =
-        total;
-
+    ).innerText = total;
 
     document.getElementById(
         "easyCount"
-    ).innerText =
-        easy;
-
+    ).innerText = easy;
 
     document.getElementById(
         "mediumCount"
-    ).innerText =
-        medium;
-
+    ).innerText = medium;
 
     document.getElementById(
         "hardCount"
-    ).innerText =
-        hard;
-
+    ).innerText = hard;
 
     document.getElementById(
         "score"
-    ).innerText =
-        score;
-
+    ).innerText = score;
 
     document.getElementById(
         "weeklyCount"
-    ).innerText =
-        weekly;
-
+    ).innerText = weekly;
 
     document.getElementById(
         "biweeklyCount"
-    ).innerText =
-        biweekly;
+    ).innerText = biweekly;
 
+    updateChart();
+}
+
+// PIE CHART
+
+function updateChart() {
+
+    const ctx =
+        document.getElementById(
+            "difficultyChart"
+        );
+
+    if (!ctx) return;
+
+    if (chart) {
+
+        chart.destroy();
+    }
+
+    chart = new Chart(ctx, {
+
+        type: "pie",
+
+        data: {
+
+            labels: [
+                "Easy",
+                "Medium",
+                "Hard"
+            ],
+
+            datasets: [{
+
+                data: [
+                    easy,
+                    medium,
+                    hard
+                ]
+
+            }]
+
+        }
+
+    });
 }
