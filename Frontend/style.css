@@ -47,12 +47,14 @@ h1{
 /* CHART */
 
 .chart-container{
-    width: 60%;
-    margin: 40px auto;
-    background: white;
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0px 2px 10px rgba(0,0,0,0.1);
+    width:350px;
+    height:350px;
+    margin:40px auto;
+    background:white;
+    padding:20px;
+    border-radius:12px;
+    box-shadow:0px 2px 10px rgba(0,0,0,0.1);
+}
 }
 
 /* FORM */
