@@ -1,6 +1,6 @@
 # DSA Progress Tracker
 
-A personal DSA tracking application built using **C++ Object-Oriented Programming (OOP)** and later enhanced with an interactive **HTML, CSS, and JavaScript frontend dashboard**.
+A personal **DSA Progress Tracking Application** developed using **C++ Object-Oriented Programming (OOP)** and later enhanced with an interactive **HTML, CSS, and JavaScript dashboard**.
 
 The project helps users track solved DSA problems, monitor difficulty-wise progress, maintain contest records, calculate scores automatically, and visualize performance through analytics charts.
 
@@ -8,19 +8,19 @@ The project helps users track solved DSA problems, monitor difficulty-wise progr
 
 # Project Overview
 
-This project was developed in two stages:
+This project was developed in two stages.
 
 ## Version 1: Console-Based Application (C++)
 
 The initial version was implemented as a terminal-based application to demonstrate and practice Object-Oriented Programming concepts in C++.
 
-Features included:
+### Features
 
-- Adding coding problems
-- Deleting coding problems
-- Viewing statistics
+- Add coding problems
+- Delete coding problems
+- View statistics
 - Difficulty-wise tracking
-- File handling for data storage
+- File handling for persistent storage
 - Progress monitoring through terminal output
 
 This version focuses primarily on backend logic and OOP implementation.
@@ -33,13 +33,14 @@ The project was later extended with a browser-based dashboard using HTML, CSS, a
 
 The frontend provides a more user-friendly interface while preserving the original tracking functionality.
 
-Additional features include:
+### Additional Features
 
 - Interactive dashboard
 - Difficulty analytics chart
 - Contest tracker
-- Persistent data storage using Local Storage
+- Persistent storage using Local Storage
 - Dynamic score calculation
+- Responsive user interface
 
 ---
 
@@ -64,7 +65,7 @@ Users can:
 The project automatically calculates scores based on problem difficulty.
 
 | Difficulty | Points |
-|------------|----------|
+|------------|---------|
 | Easy | +2 |
 | Medium | +4 |
 | Hard | +8 |
@@ -125,7 +126,7 @@ The chart updates automatically whenever the problem list changes.
 
 ## Data Persistence
 
-The frontend version uses Browser Local Storage.
+The frontend version uses **Browser Local Storage**.
 
 Stored data includes:
 
@@ -141,7 +142,7 @@ Data remains available even after refreshing or reopening the browser.
 
 # Object-Oriented Programming Concepts Used
 
-The console version demonstrates several important OOP concepts:
+The console version demonstrates several important OOP concepts.
 
 ## Classes and Objects
 
@@ -200,6 +201,12 @@ DSA-progress-tracker
 │   ├── style.css
 │   └── script.js
 │
+├── Screenshots
+│   ├── dashboard.png
+│   ├── chart analysis.png
+│   ├── adding problems.png
+│   └── contest tracker.png
+│
 ├── Problem.h
 ├── Tracker.h
 ├── Tracker.cpp
@@ -221,8 +228,6 @@ g++ main.cpp Tracker.cpp -o tracker
 ./tracker
 ```
 
----
-
 ## Frontend Version
 
 Open:
@@ -231,7 +236,7 @@ Open:
 Frontend/index.html
 ```
 
-or run using VS Code Live Server.
+or run using **VS Code Live Server**.
 
 ---
 
@@ -239,37 +244,25 @@ or run using VS Code Live Server.
 
 ## Dashboard
 
-Add dashboard screenshot here.
-
-Example:
-
-```md
-![Dashboard](screenshots/dashboard.png)
-```
+![Dashboard](Screenshots/dashboard.png)
 
 ---
 
 ## Difficulty Analytics
 
-Add analytics screenshot here.
+![Analytics](Screenshots/chart%20analysis.png)
 
-Example:
+---
 
-```md
-![Analytics](screenshots/analytics.png)
-```
+## Adding Problems
+
+![Adding Problems](Screenshots/adding%20problems.png)
 
 ---
 
 ## Contest Tracker
 
-Add contest tracker screenshot here.
-
-Example:
-
-```md
-![Contest Tracker](screenshots/contest.png)
-```
+![Contest Tracker](Screenshots/contest%20tracker.png)
 
 ---
 
@@ -313,4 +306,4 @@ GitHub: https://github.com/adyaagarwal12
 
 ---
 
-If you found this project interesting, feel free to star the repository.
+If you found this project interesting, feel free to ⭐ star the repository.
